@@ -29,6 +29,7 @@ contract FundMe {
         emit Funded(msg.sender, msg.value);
     }
     
+    // 
     function getVersion() public view returns (uint256){
         AggregatorV3Interface priceFeed = AggregatorV3Interface(0x8A753747A1Fa494EC906cE90E9f37563A8AF630e);
         return priceFeed.version();
@@ -62,7 +63,7 @@ contract FundMe {
         }
         funders = new address[](0);
         // payable(msg.sender).transfer(address(this).balance);
-        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        (bool success, ) = payable(msg.sender).call{value: address(this).balance}("");
         // call vs delegatecall
         require(success, "Transfer failed");
     }
@@ -82,9 +83,10 @@ contract FundMe {
         fund();
     }
 
-    recieve() external payable {
+    receive() external payable {
         fund();
     }
+
 }
 
 // Concepts we didn't cover yet (will cover in later sections)
