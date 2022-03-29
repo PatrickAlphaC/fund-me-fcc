@@ -15,15 +15,15 @@ contract FundMe {
     address[] public funders;
     // Could we make this constant? 
     address public /* immutable */ owner;
+    uint256 public constant MINIMUM_USD = 50 * 10 ** 18;
     
     constructor() {
         owner = msg.sender;
     }
 
     function fund() public payable {
-        uint256 minimumUSD = 50 * 10 ** 18;
-        require(msg.value.getConversionRate() >= minimumUSD, "You need to spend more ETH!");
-        // require(PriceConverter.getConversionRate(msg.value) >= minimumUSD, "You need to spend more ETH!");
+        require(msg.value.getConversionRate() >= MINIMUM_USD, "You need to spend more ETH!");
+        // require(PriceConverter.getConversionRate(msg.value) >= MINIMUM_USD, "You need to spend more ETH!");
         addressToAmountFunded[msg.sender] += msg.value;
         funders.push(msg.sender);
         emit Funded(msg.sender, msg.value);
