@@ -1,6 +1,6 @@
 This is part of the FreeCodeCamp Solidity & Javascript Blockchain Course.
 
-Video Coming Soon...
+*[⌨️ (03:31:55) Lesson 4: Remix Fund Me](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=12715s)*
 
 ## Getting Started
 
