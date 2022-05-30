@@ -6,7 +6,7 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 // Why is this a library and not abstract?
 // Why not an interface?
 library PriceConverter {
-    // we could maket this public, but then we'd have to deploy it
+    // We could make this public, but then we'd have to deploy it
     function getPrice() internal view returns (uint256) {
         // Rinkeby ETH / USD Address
         // https://docs.chain.link/docs/ethereum-addresses/
