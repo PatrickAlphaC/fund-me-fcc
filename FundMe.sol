@@ -44,13 +44,18 @@ contract FundMe {
             addressToAmountFunded[funder] = 0;
         }
         funders = new address[](0);
+        
+        //https://solidity-by-example.org/sending-ether
         // // transfer
+        //msg.sender=address
+        //payable(msg.sender) = payable address
+        
         // payable(msg.sender).transfer(address(this).balance);
         // // send
         // bool sendSuccess = payable(msg.sender).send(address(this).balance);
         // require(sendSuccess, "Send failed");
         // call
-        (bool callSuccess, ) = payable(msg.sender).call{value: address(this).balance}("");
+        (bool callSuccess, /*bytes memory dataReturned*/ ) = payable(msg.sender).call{value: address(this).balance}("");
         require(callSuccess, "Call failed");
     }
     // Explainer from: https://solidity-by-example.org/fallback/
