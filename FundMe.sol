@@ -17,7 +17,7 @@ contract FundMe {
     uint256 public constant MINIMUM_USD = 50 * 10 ** 18;
     
     constructor() {
-        i_owner = msg.sender;
+        i_owner = msg.sender; //msg.sender of the constructor function is going to be whoever is deploying the contract, i.e., owner
     }
 
     function fund() public payable {
@@ -39,6 +39,8 @@ contract FundMe {
     }
     
     function withdraw() payable onlyOwner public {
+    
+        /* starting index, ending index, step amount */
         for (uint256 funderIndex=0; funderIndex < funders.length; funderIndex++){
             address funder = funders[funderIndex];
             addressToAmountFunded[funder] = 0;
