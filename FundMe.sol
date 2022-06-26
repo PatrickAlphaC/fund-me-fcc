@@ -4,7 +4,7 @@ pragma solidity ^0.8.8;
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./PriceConverter.sol";
 
-error NotOwner();
+error NotOwner(); //custom errors to save gas. we can use if and revert in the modifier instead of require to save gas
 
 contract FundMe {
     using PriceConverter for uint256;
@@ -53,6 +53,8 @@ contract FundMe {
         (bool callSuccess, ) = payable(msg.sender).call{value: address(this).balance}("");
         require(callSuccess, "Call failed");
     }
+    
+    //what happens if someone sends this contract ETH without calling the fund function
     // Explainer from: https://solidity-by-example.org/fallback/
     // Ether is sent to contract
     //      is msg.data empty?
