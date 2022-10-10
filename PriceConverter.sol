@@ -16,6 +16,8 @@ library PriceConverter {
         (, int256 answer, , , ) = priceFeed.latestRoundData();
         // ETH/USD rate in 18 digit
         return uint256(answer * 10000000000);
+        // or (Both will do the same thing)
+        // return uint256(answer * 1e10); // 1* 10 ** 10 == 10000000000
     }
 
     // 1000000000
@@ -26,6 +28,8 @@ library PriceConverter {
     {
         uint256 ethPrice = getPrice();
         uint256 ethAmountInUsd = (ethPrice * ethAmount) / 1000000000000000000;
+        // or (Both will do the same thing)
+        // uint256 ethAmountInUsd = (ethPrice * ethAmount) / 1e18; // 1 * 10 ** 18 == 1000000000000000000
         // the actual ETH/USD conversion rate, after adjusting the extra 0s.
         return ethAmountInUsd;
     }
