@@ -1,6 +1,6 @@
 This is part of the FreeCodeCamp Solidity & Javascript Blockchain Course.
 
-*It has been recently updated to work with Goerli instead of Rinkeby/Kovan.*
+*It has been recently updated to work with Sepolia Testnet instead of Goerli/Rinkeby/Kovan.*
 
 *[⌨️ (03:31:55) Lesson 4: Remix Fund Me](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=12715s)*
 
