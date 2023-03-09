@@ -8,10 +8,10 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 library PriceConverter {
     // We could make this public, but then we'd have to deploy it
     function getPrice() internal view returns (uint256) {
-        // Goerli ETH / USD Address
-        // https://docs.chain.link/docs/ethereum-addresses/
+        // Sepolia ETH / USD Address
+        // https://docs.chain.link/data-feeds/price-feeds/addresses#Sepolia%20Testnet
         AggregatorV3Interface priceFeed = AggregatorV3Interface(
-            0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
+            0x694AA1769357215DE4FAC081bf1f309aDC325306
         );
         (, int256 answer, , , ) = priceFeed.latestRoundData();
         // ETH/USD rate in 18 digit
