@@ -28,8 +28,8 @@ contract FundMe {
     }
     
     function getVersion() public view returns (uint256){
-        // ETH/USD price feed address of Goerli Network.
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);
+        // ETH/USD price feed address of Sepolia Network.
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
         return priceFeed.version();
     }
     
@@ -84,6 +84,5 @@ contract FundMe {
 // 5. abi.encode / decode
 // 6. Hash with keccak256
 // 7. Yul / Assembly
-
 
 
